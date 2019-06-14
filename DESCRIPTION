@@ -15,7 +15,6 @@ Depends:
     zeallot,
     imager,
     tfruns,
-    benchmarkme,
     reticulate
 LazyData: true
 RoxygenNote: 6.1.1

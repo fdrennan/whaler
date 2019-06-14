@@ -14,8 +14,8 @@ FLAGS <- flags(
   flag_numeric('patience', 5),
   flag_string('monitor', 'val_loss'),
   flag_string('mode', 'auto'),
-  flag_boolean('reaggregate_data', FALSE),
-  flag_boolean('display_image', FALSE),
+  flag_boolean('reaggregate_data', TRUE),
+  flag_boolean('display_image', TRUE),
   flag_boolean('run_model', TRUE),
   flag_numeric('rescale', 1/255),
   flag_numeric('rotation_range', 0),
@@ -28,7 +28,7 @@ FLAGS <- flags(
   flag_numeric('image_nrow', 150)
 )
 
-system('top -l 1 -s 0 | grep PhysMem')
+# system('top -l 1 -s 0 | grep PhysMem')
 
 if(FLAGS$reaggregate_data) {
   message('Aggregating data\n')
