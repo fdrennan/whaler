@@ -93,7 +93,15 @@ if(FLAGS$run_model) {
                               patience = FLAGS$patience,
                               verbose = 1,
                               mode = FLAGS$mode,
-                              restore_best_weights = FALSE)
+                              restore_best_weights = FALSE),
+      callback_reduce_lr_on_plateau(monitor = "val_loss",
+                                    factor = 0.2,
+                                    patience = 10,
+                                    verbose = 1,
+                                    mode = "auto",
+                                    min_delta = 1e-04,
+                                    cooldown = 0,
+                                    min_lr = 1e-07)
     )
   # ReduceLROnPlateau())
 
