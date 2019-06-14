@@ -39,7 +39,13 @@ generate_keras_model <- function(input_shape = c(150, 150, 3),
 compile_model <- function(model,
                           num_classes = 3,
                           optimizer = NULL,
-                          metrics = c("accuracy")) {
+                          metrics = c("accuracy"),
+                          n_gpus = 0) {
+
+  if(n_gpus > 0) {
+    model <- multi_gpu_model(model, gpus = n_gpus)
+  }
+
   if(num_classes == 2) {
     loss = "binary_crossentropy"
   } else {

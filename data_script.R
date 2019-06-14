@@ -25,7 +25,8 @@ FLAGS <- flags(
   flag_numeric('zoom_range', 0),
   flag_boolean('horizontal_flip', TRUE),
   flag_string('color_mode', "rgb"),
-  flag_numeric('image_nrow', 150)
+  flag_numeric('image_nrow', 150),
+  flag_numeric('n_gpus', 0)
 )
 
 # system('top -l 1 -s 0 | grep PhysMem')
@@ -100,7 +101,8 @@ if(FLAGS$run_model) {
     compile_model(model,
                   num_classes = train_gen$num_classes,
                   optimizer = optimizer_adam(lr = FLAGS$learning_rate),
-                  metrics = c("accuracy"))
+                  metrics = c("accuracy"),
+                  n_gpus = FLAGS$n_gpus)
 
   system('top -l 1 -s 0 | grep PhysMem')
 
