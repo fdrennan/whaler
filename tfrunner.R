@@ -14,7 +14,7 @@ runs <- tuning_run(
       n_photo_min  = 10,
       n_photo_max  = 100,
       row_number_max = 10,
-      only_pick_n_pairs = 50,
+      only_pick_n_pairs = 20,
       n_to_move    =  5,
 
       display_image = FALSE,
@@ -35,6 +35,8 @@ runs <- tuning_run(
       patience = 10,
       monitor = 'val_loss',
       mode = 'auto',
+
+
 
       # Model Paramters
       epochs       =  40,
